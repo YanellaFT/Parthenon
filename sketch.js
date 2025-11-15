@@ -4,7 +4,7 @@ function setup() {
   createCanvas(400, 400);
 
   startButton = new Sprite(-200, -200, 100, 50);
-  //startButton.color = "#ff0000";
+  //startButton.color = "#945151ff";
   //startButton.text = "Enter War";
 }
 
