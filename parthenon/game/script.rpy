@@ -8,11 +8,17 @@ define e = Character("Cassidy")
 
 # The game starts here.
 
-label start:
+label splashscreen:
+    scene black
+    with Pause(1)
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    play sound "jjfjghfkjhg"
+
+    show splash with dissolve
+    with Pause (2)
+
+label start:
+"dijk
 
     scene bg room
 
@@ -31,4 +37,5 @@ label start:
     # This ends the game.
 
     return
+
 
