@@ -1,8 +1,19 @@
+var currentcharacter = "seshat"
+
 function setup() {
   createCanvas(400, 400);
-  sprite = new Sprite();
+  goddesscharacter = new Sprite();
 }
 
 function draw() {
+  updateGame();
+
   background(220);
+
+}
+
+function updateGame() {
+  if (currentcharacter == "seshat") {
+    typingGameRun()
+  };
 }
