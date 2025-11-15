@@ -6,3 +6,8 @@ function setup() {
 function draw() {
   background(220);
 }
+
+let bg;
+function preload() {
+bg = loadImage('Start.jpeg');
+}
