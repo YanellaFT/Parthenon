@@ -13,7 +13,5 @@ function draw() {
 }
 
 function updateGame() {
-  if (currentcharacter == "seshat") {
-    typingGameRun()
-  };
+  typingGameRun();
 }
