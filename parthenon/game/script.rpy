@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define athena = Character("Athena")
 
 
 # The game starts here.
@@ -20,13 +20,28 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show athena happy
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    athena "Welcome to New York!"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    show athena sad
+    athena "Sadly, it isn’t a very welcoming “welcome to new york”. As you can see, the city has been at war with each other for many years." 
+    show athena happy
+    athena"But I’m glad you came! I see potential in you. Together, with the help of other gods, we can bring peace to this city."
+    athena "Are you ready to begin your journey?"
+    ready = false #correct formatting???
+    menu :
+        "Yes, I am ready!" :
+            show athena excited
+            athena "Great! Let's start!"
+            $ ready = true
+        "No, I'm not ready yet." :
+            show athena sad
+            athena "Aw. You had great potential. Come back when you feel ready."
+            $ ready = false
+
 
     # This ends the game.
 
