@@ -40,7 +40,7 @@ label start:
     athena "Sadly, it isn’t a very welcoming “welcome to new york”. As you can see, the city has been at war with each other for many years." 
     show athena happy
     athena"But I’m glad you came! I see potential in you. Together, with the help of other gods, we can bring peace to this city."
-    athena "Are you ready to begin your journey?"
+    athena "Are you ready to begin your journey through NYC to help stop the war?"
     ready = false #correct formatting???
     menu :
         "Yes, I am ready!" :
