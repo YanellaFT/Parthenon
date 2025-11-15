@@ -1,54 +1,24 @@
 let screen = 0;
+let score = 0;
 
 function setup() {
   createCanvas(400, 400);
 
-  startButton = new Sprite(-200, -200, 100, 50);
-  //startButton.color = "#945151ff";
-  //startButton.text = "Enter War";
+  letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  
 }
 
 function draw() {
-  updateGame();
-
   background(220);
+  //text(score, 200, 100);
+  letter = random(letters)
+  //setTimeout(letter = random(letters), 5000);
+  text(letter, 200, 200);
 
-  //SCREEN 0 : Title
-  if (screen == 0) {
-    textSize(32);
-    textAlign(CENTER);
-    text("The New York War", 200, 100);
-
-    startButton.pos = {x: 200, y: 200};
-    if (startButton.mouse.pressed()) {
-      score = 1;
-    }
-  }
-
-  //SCREEN 1 : Intro
-  if (screen == 1) {
-    text("You have entered the war zone of New York. \n Every turn you take will bring you face to face with a god. \n Use your wit to survive.", 200, 100);
-  }
-
-  //SCREEN 2 :
-  if (screen == 2) {
-    
-  }
-
-  //SCREEN 3 :
-  if (screen == 3) {
-    
-  }
-
-  //SCREEN 4 :
-  if (screen == 4) {
-    
-  }
-
-  //SCREEN 5 :
-  if (screen == 5) {
-    
-  }
+  //if (kb.pressed(letter)) {
+  //  score = score + 1;
+    //console.log("yes");
+  //}
 }
 
 
