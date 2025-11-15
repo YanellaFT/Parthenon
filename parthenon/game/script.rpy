@@ -8,11 +8,21 @@ define athena = Character("Athena")
 
 # The game starts here.
 
-label start:
+label splashscreen:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+ "imageherer" with Dissolve(1.0)
+ pause 2.0
+
+ "imageherer" with Dissolve(1.0)
+ pause 0.5
+
+    scene black
+    with Pause(1)
+
+    play sound "soundherer"
+
+label start:
+"dijk"
 
     scene bg room
 
@@ -46,3 +56,6 @@ label start:
     # This ends the game.
 
     return
+
+
+
