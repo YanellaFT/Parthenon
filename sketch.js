@@ -9,6 +9,8 @@ function setup() {
 }
 
 function draw() {
+  updateGame();
+
   background(220);
 
   //SCREEN 0 : Title
@@ -50,3 +52,9 @@ function draw() {
 }
 
 
+
+function updateGame() {
+  if (currentcharacter == "seshat") {
+    typingGameRun()
+  };
+}
