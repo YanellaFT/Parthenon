@@ -23,6 +23,12 @@ function draw() {
   //}
 }
 
+<<<<<<< HEAD
+let bg;
+function preload() {
+bg = loadImage('Start.jpeg');
+}
+=======
 
 
 function updateGame() {
@@ -30,3 +36,4 @@ function updateGame() {
     typingGameRun()
   };
 }
+>>>>>>> 12e62b0719714814fd22e7b123fc7fb17cdccfb3
