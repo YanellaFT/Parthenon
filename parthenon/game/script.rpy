@@ -9,16 +9,20 @@ define e = Character("Cassidy")
 # The game starts here.
 
 label splashscreen:
+
+ "imageherer" with Dissolve(1.0)
+ pause 2.0
+
+ "imageherer" with Dissolve(1.0)
+ pause 0.5
+
     scene black
     with Pause(1)
 
-    play sound "jjfjghfkjhg"
-
-    show splash with dissolve
-    with Pause (2)
+    play sound "soundherer"
 
 label start:
-"dijk
+"dijk"
 
     scene bg room
 
@@ -37,5 +41,6 @@ label start:
     # This ends the game.
 
     return
+
 
 
