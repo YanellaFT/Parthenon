@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(400, 400);
+  sprite = new Sprite();
 }
 
 function draw() {
