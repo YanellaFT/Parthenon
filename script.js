@@ -5,6 +5,11 @@ const textstrings = ["hello!", "how are you?"]
 var i = 0
 var currentstring = 0
 
+function onStartPressed() {
+    console.log("started");
+    document.getElementById("prompt").textContent = textstrings[currentstring];
+}
+
 // Initialize event listeners on page load
 document.addEventListener("DOMContentLoaded", () => {
     // Screen navigation buttons
