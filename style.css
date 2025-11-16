@@ -71,7 +71,7 @@ p {
 p.text {
     margin-right: 25px;
     font-size: 1.5em;
-    color: #00ff00;
+    color: white;
     font-family: 'Courier New', monospace;
     min-height: 40px;
 }
