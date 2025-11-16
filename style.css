@@ -97,26 +97,39 @@ p.text {
     background-color: #c01010;
 }
 
-#screen-intru {
-    background-image: url('subway.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-size; 77% auto;
 
-    background-color: #c01010;
+#text-intro {
+    transform: translateY(180px);
+    color: #E4E329;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: #5c5c15;
+    background-color: rgb(15, 85, 42);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 13px;
 }
 
-#screen-intra {
-    background-image: url('subway.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-size; 77% auto;
-
-    background-color: #c01010;
+#text-intru {
+    transform: translateY(180px);
+    color: #E4E329;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: #5c5c15;
+    background-color: rgb(15, 85, 42);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 13px;
 }
 
+#text-intra {
+    transform: translateY(180px);
+    color: #E4E329;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: #5c5c15;
+    background-color: rgb(15, 85, 42);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 13px;
+}
 
 #text-intri {
     transform: translateY(180px);
@@ -129,12 +142,13 @@ p.text {
     border-radius: 13px;
 }
 
-#screen-intry {
-    background-image: url('subway.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-size; 77% auto;
-
-    background-color: #c01010;
+#text-intry {
+    transform: translateY(180px);
+    color: #E4E329;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: #5c5c15;
+    background-color: rgb(15, 85, 42);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 13px;
 }
