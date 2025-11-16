@@ -240,8 +240,24 @@ p.text {
     background-color: #44403d;
 }
 
-.screen-accuracy-intro {
+#screen-accuracy-intro {
     background-image: url('artemis.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-size: 40% auto;
+
+    background-color: #000000;
+}
+
+#ch2text {
+    //transform: translateY(-40px);
+    color: #E4E329;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: #5c5c15;
+    background-color: rgb(15, 85, 42);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 13px;
 }
 
 
@@ -347,4 +363,8 @@ p.text {
 .font {
     font-size: 1.5em;
     font-family: 'Courier New', monospace;   
+}
+
+#screen-end {
+    background-image: url('start.jpeg');
 }
