@@ -172,6 +172,20 @@ p.text {
     background-color: #200c4f;
 }
 
+#Seshat {
+    font-size: 23px;
+    color: #8a2020;
+}
+
+#warning1 {
+    font-size: 20px;
+    color: #9c8383;
+    background-color:#200c4f
+}
+
+
+
+
 #screen-accuracy-challenge {
     background-image: url('dungeon.jpg');
     background-position: center center;
