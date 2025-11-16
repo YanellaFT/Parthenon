@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <script > src="script.js" </script>
-    </head>
-    <body>
-        <p>Type this:</p>
-        <p id="prompt" class="text"></p>
-        <html>
+<html lang="en">
 <head>
-<style>
-p.text {
-  margin-right: 25px;
-}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The War of Gods</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Screen 0: Title Page -->
+    <div id="screen-title" class="screen active">
+        <div class="screen-content">
+            <h1>The War with Gods</h1>
+            <button id="btn-start" class="btn">Start</button>
+        </div>
+    </div>
+
+    <!-- Screen 1: intro Page -->
+    <div id="screen-intro" class="screen">
+        <div class="screen-content">
+            <p>The Parthenon gods have summoned you, <strong>Athena</strong>, to their hideout. Now, you have landed in a closed off subway station in New York. <br>It turns out, the gods are not as good as they seem. They are evil, and use other gods as sacrifices in hopes to get out. <br>Since it is the 21st century, instead of battling it out by hand, they challenge you to a typing game. <br>Win the following typing games to make it out alive and not turn into the next sacrifice. 
+Seshat– the god of writing, knowledge, and measurement– was their last sacrifice, and they’ll give you hints and tips to hopefully help you. 
+</p>
+            <button id="btn-enter" class="btn">Enter</button>
+        </div>
+    </div>
+
+    <!-- Screen 2: Typing Game -->
+    <div id="screen-game" class="screen">
+        <div class="screen-content">
+            <h2>Typing Game</h2>
+            <p>Type this:</p>
+            <p id="prompt" class="text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
