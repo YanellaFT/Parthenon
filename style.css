@@ -236,6 +236,10 @@ p.text {
     background-color: #44403d;
 }
 
+.screen-accuracy-intro {
+    background-image: url('artemis.jpg');
+}
+
 
 #timer-container {
     position: fixed;
