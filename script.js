@@ -15,7 +15,8 @@ document.addEventListener("keydown", event => {
                 currentstring += 1;
                 i = 0;
                 document.getElementById("prompt").textContent = textstrings[currentstring];
-                letter = textstrings[currentstring].substring(i, i+1);
+                if ((currentstring+1 > textstrings.length)==false) {
+                    letter = textstrings[currentstring].substring(i, i+1);}
         };
         if (event.key == letter) {
             console.log("correct");
