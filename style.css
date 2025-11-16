@@ -249,7 +249,7 @@ p.text {
     background-color: #000000;
 }
 
-#ch2text {
+/*#ch2text {
     //transform: translateY(-40px);
     color: #E4E329;
     font-family: "Lucida Console", "Courier New", monospace;
@@ -258,7 +258,7 @@ p.text {
     padding: 10px;
     font-size: 25px;
     border-radius: 13px;
-}
+}*/
 
 
 #timer-container {
