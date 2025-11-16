@@ -46,7 +46,7 @@
      <div id="screen-speed-challenge" class="screen">
         <div class="screen-content">
             <h2>Challenge One: Speed</h2>
-            <p>Type this as fast as you can to get away from Kannon:</p>
+            <p>Type this as fast as you can to get away from Kannon (press enter once you are done):</p>
             <!-- shows the target sentence to type -->
             <p id="prompt" class="text target"></p>
             <!-- shows the characters the player has typed so far -->
@@ -54,13 +54,27 @@
         </div>      
      </div>
 
-     <!-- Screen4: challenge two intro-->
-    <div>
-      <div class="screen-content">
-        <h2>Challenge Two: Accuracy</h2>
-        <p></p>
-      </div>
-    </div>
+
+        <!-- Screen4: challenge two intro-->
+        <div id="screen-accuracy-intro" class="screen">
+            <div class="screen-content">
+                <h2>Challenge Two: Accuracy</h2>
+                <p>Good job! You escaped the wise, hypnotising Kannon! Next you will face Artemis, the god of hunting. Their precision is as precise as one can get so you have to do better. </p>
+                <p>Seshat Ghost: remember, capitals and punctuation counts</p>
+</p>
+                <button id="btn-ch2-start" class="btn">Start Challenge 2</button>
+            </div>
+        </div>
+
+        <!-- Screen5: challenge two typing -->
+        <div id="screen-accuracy-challenge" class="screen">
+            <div class="screen-content">
+                <h2>Challenge Two: Accuracy</h2>
+                <p>Type this as accurately as you can:</p>
+                <p id="prompt" class="text target"></p>
+                <p id="typed" class="text typed"></p>
+            </div>
+        </div>
 
     <script src="script.js"></script>
 </body>

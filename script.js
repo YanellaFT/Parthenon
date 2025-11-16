@@ -1,6 +1,7 @@
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = game
 
-const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, don’t you think? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
+//const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
+const textstrings = ["j", "k"];
 
 let i = 0;
 let currentstring = 0;
@@ -39,7 +40,10 @@ function switchScreen(screenNumber) {
     document.getElementById("screen-title").classList.remove("active");
     document.getElementById("screen-intro").classList.remove("active");
     document.getElementById("screen-speed-intro").classList.remove("active");
-    
+    document.getElementById("screen-speed-challenge").classList.remove("active");
+    document.getElementById("screen-accuracy-intro").classList.remove("active");
+    document.getElementById("screen-accuracy-challenge").classList.remove("active");
+
     // Show the selected screen
     if (screenNumber === 0) {
         document.getElementById("screen-title").classList.add("active");
@@ -49,6 +53,10 @@ function switchScreen(screenNumber) {
         document.getElementById("screen-speed-intro").classList.add("active");
     } else if(screenNumber === 3) {
         document.getElementById("screen-speed-challenge").classList.add("active");
+    } else if(screenNumber === 4) {
+        document.getElementById("screen-accuracy-intro").classList.add("active");
+    } else if(screenNumber === 5) {
+        document.getElementById("screen-accuracy-challenge").classList.add("active");
     }
 }
 
@@ -65,7 +73,7 @@ function resetGame() {
 // Handle typing input (only when on game screen)
 function handleGameInput(event) {
     if (currentScreen !== 3) return; // Only process input on game screen
-    
+
     if (currentstring >= textstrings.length) {
         console.log("Game complete!");
         return;
@@ -76,18 +84,16 @@ function handleGameInput(event) {
 
     let letter = textstrings[currentstring].substring(i, i+1);
 
-    // If we've reached the end of the current string, move to the next one
+    // If we've reached the end of the current string, go to screen 4 before starting the next string
     if (letter === '') {
-        currentstring += 1;
-        i = 0;
-        if (currentstring < textstrings.length) {
-            promptEl.textContent = textstrings[currentstring];
-            typedEl.textContent = "";
-            letter = textstrings[currentstring].substring(i, i+1);
+        if (currentstring === 0) {
+            // Finished first string, go to screen 4 (challenge two intro)
+            switchScreen(4);
+            // When user proceeds to screen 5, then set currentstring = 1 and reset i
+            return;
         } else {
-            console.log("Game complete!");
-            promptEl.textContent = "Game complete!";
-            typedEl.textContent = "";
+            // All strings complete, go to next screen (e.g., 6 or game complete)
+            switchScreen(6);
             return;
         }
     }
@@ -103,6 +109,23 @@ function handleGameInput(event) {
     }
     console.log(i);
 }
+
+// Add event listener for starting challenge two (screen 5)
+document.addEventListener("DOMContentLoaded", () => {
+    const btnCh2Start = document.getElementById("btn-ch2-start");
+    if (btnCh2Start) {
+        btnCh2Start.addEventListener("click", () => {
+            // Set up for currentstring = 1
+            currentstring = 1;
+            i = 0;
+            const promptEl = document.getElementById("prompt");
+            const typedEl = document.getElementById("typed");
+            if (promptEl) promptEl.textContent = textstrings[currentstring] || "";
+            if (typedEl) typedEl.textContent = "";
+            switchScreen(5);
+        });
+    }
+})
 
 
 //TO DO:
