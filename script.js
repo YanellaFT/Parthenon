@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("btn-enter").addEventListener("click", () => {
-        switchScreen(2); // Go to challenge 1 intro screen
+        switchScreen(6); // Go to tutorial screen
     });
 
     document.getElementById("btn-ch1-start").addEventListener("click", () =>{
@@ -49,6 +49,8 @@ function switchScreen(screenNumber) {
     document.getElementById("screen-speed-challenge").classList.remove("active");
     document.getElementById("screen-accuracy-intro").classList.remove("active");
     document.getElementById("screen-accuracy-challenge").classList.remove("active");
+    document.getElementById("screen-tutorial").classList.remove("active");
+    document.getElementById("screen-tutorial-2").classList.remove("active");
 
     // Show the selected screen
     // add a failure screen. if screen number = -1 (or whatever you pick for the failure screen)
@@ -67,6 +69,10 @@ function switchScreen(screenNumber) {
         stopTimer();
     } else if(screenNumber === 5) {
         document.getElementById("screen-accuracy-challenge").classList.add("active");
+    } else if(screenNumber === 6) {
+        document.getElementById("screen-tutorial").classList.add("active");
+    } else if(screenNumber === 7) {
+        document.getElementById("screen-tutorial-2").classList.add("active");
     }
 }
 
@@ -145,6 +151,13 @@ function resetGame() {
 function handleGameInput(event) {
     //if (currentScreen !== 3) return; // Only process input on game screen
 
+    // Handle tutorial screens with Enter key
+    if (event.key === "Enter" && (currentScreen === 6 || currentScreen === 7)) {
+        event.preventDefault();
+        nextTutorialStep();
+        return;
+    }
+
     if (currentstring >= textstrings.length) {
         console.log("Game complete!");
         return;
@@ -201,6 +214,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 })
+
+function nextTutorialStep() {
+    // On tutorial screen (6), pressing Enter goes to tutorial part 2 (screen 7)
+    if (currentScreen === 6) {
+        switchScreen(7);
+    }
+    // On tutorial part 2 (screen 7), pressing Enter goes to speed challenge intro (screen 2)
+    else if (currentScreen === 7) {
+        switchScreen(2);
+    }
+}
 
 
 //TO DO:

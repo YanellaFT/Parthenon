@@ -255,3 +255,62 @@ p.text {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     letter-spacing: 0.05em;
 }
+
+/* Typing animation for tutorial text */
+.typing-text {
+    display: inline-block;
+    overflow: hidden; /* ensure the text is clipped */
+    white-space: nowrap;
+    border-right: 0.12em solid rgba(228,227,41,0.9); /* caret */
+    font-family: 'Courier New', monospace;
+    font-size: 1.4em;
+    color: #ffffff;
+    max-width: 100%;
+    /* default: no visible text until animation runs */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(228,227,41,0.9); }
+}
+
+/* Apply the typing animation when the element is present; duration is conservative */
+.typing-text {
+    animation:
+        typing 3.5s steps(40, end) 0s 1 forwards,
+        blink-caret 0.8s step-end infinite;
+}
+
+/* Hint fade-in */
+.hint {
+    opacity: 0;
+    color: #dcdcdc;
+    font-family: 'Courier New', monospace;
+    margin-top: 12px;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(6px);
+    /* start animation after typing finishes (approx) */
+    animation: hint-fade 0.8s ease 3.6s forwards;
+}
+
+@keyframes hint-fade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Screen fade-in helper used on tutorial screens */
+.fade-in-on-load {
+    opacity: 0;
+    animation: screen-fade 0.6s ease 0s forwards;
+}
+
+@keyframes screen-fade {
+    to { opacity: 1; }
+}
