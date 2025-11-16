@@ -4,6 +4,7 @@ var i = 0
 var currentstring = 0
 
 document.addEventListener("keydown", event => {
+    document.getElementById("prompt").textContent += textstrings[currentstring];
     if ((currentstring+1 > textstrings.length)==false) {
         var letter = textstrings[currentstring].substring(i, i+1);
         if (letter == '') {
