@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("btn-ch1-start").addEventListener("click", () =>{
+        currentstring = 0; // Set to first challenge text
         resetGame();
         switchScreen(3); // Go to challenge 1 screen
     });
