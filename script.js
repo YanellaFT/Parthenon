@@ -1,10 +1,11 @@
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = challeng 1 intro, 3 = challenge 1, 4 = challenge 2 intro, 5 = challenge 2
 
 //const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
-const textstrings = ["boomboomboomboomboom", "yayayayay"]; //for testing purposes
+const textstrings = ["boomboomboomboomboom", "yayayayay", "I am Athena. I refuse to be your sacrifice."]; //for testing purposes
 
 let i = 0;
 let currentstring = 0;
+let tutorialSecondTextShown = false; // Track if second tutorial text has been shown
 
 function onStartPressed() {
     console.log("started");
@@ -71,6 +72,7 @@ function switchScreen(screenNumber) {
         document.getElementById("screen-accuracy-challenge").classList.add("active");
     } else if(screenNumber === 6) {
         document.getElementById("screen-tutorial").classList.add("active");
+        tutorialSecondTextShown = false; // Reset flag when entering screen 6
     } else if(screenNumber === 7) {
         document.getElementById("screen-tutorial-2").classList.add("active");
     }
@@ -158,6 +160,35 @@ function handleGameInput(event) {
         return;
     }
 
+    // Tutorial screen 7 typing detection (uses prompt-tutorial and typed-tutorial)
+    if (currentScreen === 7) {
+        const promptTut = document.getElementById('prompt-tutorial');
+        const typedTut = document.getElementById('typed-tutorial');
+        if (!promptTut || !typedTut) return;
+
+        const tutorialText = textstrings[2]; // The Athena quote
+        let letter = tutorialText.substring(i, i+1);
+
+        // If we've reached the end of the tutorial string, finish
+        if (letter === '') {
+            return;
+        }
+
+        // Check if pressed key matches the expected letter
+        if (event.key === letter) {
+            // display progress in the typed element
+            typedTut.textContent += letter;
+            i += 1;
+
+            // If that was the last character, advance to challenge intro
+            if (i === tutorialText.length) {
+                switchScreen(2);
+                return;
+            }
+        }
+        return; // Don't process other keys on screen 7
+    }
+
     if (currentstring >= textstrings.length) {
         console.log("Game complete!");
         return;
@@ -216,9 +247,41 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function nextTutorialStep() {
-    // On tutorial screen (6), pressing Enter goes to tutorial part 2 (screen 7)
+    // On tutorial screen (6), pressing Enter
     if (currentScreen === 6) {
-        switchScreen(7);
+        // First Enter: show the second typing animation and hint, stay on screen 6
+        if (!tutorialSecondTextShown) {
+            const typingText1 = document.getElementById('typing-text');
+            const hintText1 = document.getElementById('tutorial hint');
+            const typingText2 = document.getElementById('typing-text-2');
+            const hintText2 = document.getElementById('tutorial-hint-2');
+            
+            // Hide the first text and hint
+            if (typingText1) typingText1.style.display = 'none';
+            if (hintText1) hintText1.style.display = 'none';
+            
+            // Show the second text and hint
+            if (typingText2) typingText2.style.display = 'block';
+            if (hintText2) hintText2.style.display = 'block';
+            
+            tutorialSecondTextShown = true;
+            return; // Stay on screen 6
+        }
+        // Second Enter: move to screen 7 for typing challenge
+        else {
+            // Set up for tutorial typing on screen 7
+            currentstring = 2;
+            i = 0;
+            const promptTut = document.getElementById('prompt-tutorial');
+            const typedTut = document.getElementById('typed-tutorial');
+            if (promptTut) {
+                promptTut.textContent = textstrings[2];
+            }
+            if (typedTut) {
+                typedTut.textContent = "";
+            }
+            switchScreen(7);
+        }
     }
     // On tutorial part 2 (screen 7), pressing Enter goes to speed challenge intro (screen 2)
     else if (currentScreen === 7) {

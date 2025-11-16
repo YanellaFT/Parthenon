@@ -314,3 +314,9 @@ p.text {
 @keyframes screen-fade {
     to { opacity: 1; }
 }
+
+/* Hide second typing animation and hint by default; shown via JS on Enter */
+#typing-text-2,
+#tutorial-hint-2 {
+    display: none;
+}
