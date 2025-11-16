@@ -177,3 +177,22 @@ p.text {
 
     background-color: #44403d;
 }
+
+#timer-container {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    z-index: 1000;
+}
+
+.timer {
+    font-size: 3em;
+    color: #E4E329;
+    font-family: 'Courier New', monospace;
+    background: rgba(0,0,0,0.7);
+    padding: 0.2em 0.7em;
+    border-radius: 0.5em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    letter-spacing: 0.05em;
+}

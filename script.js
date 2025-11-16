@@ -1,7 +1,12 @@
+// Countdown variables for Challenge 1
+let timerInterval = null;
+let countdownTime = 13; // seconds
+let timeLeft = countdownTime;
+
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = challeng 1 intro, 3 = challenge 1, 4 = challenge 2 intro, 5 = challenge 2
 
-//const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
-const textstrings = ["j", "k"];
+const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
+//const textstrings = ["j", "k"];
 
 let i = 0;
 let currentstring = 0;
@@ -53,11 +58,60 @@ function switchScreen(screenNumber) {
         document.getElementById("screen-speed-intro").classList.add("active");
     } else if(screenNumber === 3) {
         document.getElementById("screen-speed-challenge").classList.add("active");
+        startTimer();
     } else if(screenNumber === 4) {
         document.getElementById("screen-accuracy-intro").classList.add("active");
+        stopTimer();
     } else if(screenNumber === 5) {
         document.getElementById("screen-accuracy-challenge").classList.add("active");
     }
+// Start the countdown for Challenge 1
+function startTimer() {
+    timeLeft = countdownTime;
+    updateTimerDisplay(timeLeft);
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        timeLeft -= 0.1;
+        if (timeLeft <= 0) {
+            timeLeft = 0;
+            updateTimerDisplay(timeLeft, true);
+            stopTimer();
+            // Time's up, move to next screen
+            showTimesUp();
+            switchScreen(4);
+            return;
+        }
+        updateTimerDisplay(timeLeft);
+    }, 100);
+}
+
+// Stop the countdown
+function stopTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+}
+
+// Update the timer display
+function updateTimerDisplay(time, isFinal) {
+    const timerEl = document.getElementById("timer");
+    if (timerEl) {
+        if (isFinal && time === 0) {
+            timerEl.textContent = "Time's up!";
+        } else {
+            timerEl.textContent = `Time Left: ${Math.max(0, time).toFixed(1)}s`;
+        }
+    }
+}
+
+// Show 'Time's up!' message (optional, can be customized)
+function showTimesUp() {
+    const typedEl = document.getElementById("typed");
+    if (typedEl) {
+        typedEl.textContent = "Time's up!";
+    }
+}
 }
 
 // Reset game state when entering game
@@ -92,16 +146,8 @@ function handleGameInput(event) {
 
     // If we've reached the end of the current string, go to screen 4 before starting the next string
     if (letter === '') {
-        if (currentstring === 0) {
-            // Finished first string, go to screen 4 (challenge two intro)
-            switchScreen(4);
-            // When user proceeds to screen 5, then set currentstring = 1 and reset i
-            return;
-        } else {
-            // All strings complete, go to next screen (e.g., 6 or game complete)
-            switchScreen(6);
-            return;
-        }
+        // Already finished, ignore further input
+        return;
     }
 
     // Check if pressed key matches the expected letter
@@ -110,6 +156,18 @@ function handleGameInput(event) {
         // display progress in the typed element instead of modifying the prompt
         typedEl.textContent += letter;
         i += 1;
+
+        // If that was the last character, advance immediately
+        if (i === textstrings[currentstring].length) {
+            if (currentstring === 0) {
+                stopTimer();
+                switchScreen(4);
+                return;
+            } else {
+                switchScreen(6);
+                return;
+            }
+        }
     } else {
         console.log("false, correct was " + letter);
     }
