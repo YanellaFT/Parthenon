@@ -249,16 +249,9 @@ p.text {
     background-color: #000000;
 }
 
-/*#ch2text {
-    //transform: translateY(-40px);
-    color: #E4E329;
-    font-family: "Lucida Console", "Courier New", monospace;
-    text-shadow: #5c5c15;
-    background-color: rgb(15, 85, 42);
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 13px;
-}*/
+#ch2text {
+    color: yellow;
+}
 
 
 #timer-container {
