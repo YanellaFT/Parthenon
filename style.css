@@ -99,9 +99,9 @@ p.text {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-size; 77% auto;
+    background-size: 40% auto;
 
-    background-color: #c01010;
+    background-color: #ffffff;
 }
 
 
@@ -158,4 +158,8 @@ p.text {
     padding: 10px;
     font-size: 25px;
     border-radius: 13px;
+}
+
+#screen-speed-challenge {
+    background-image: url('dungeon.jpg');
 }
