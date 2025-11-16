@@ -27,7 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-ch1-start").addEventListener("click", () =>{
         resetGame();
         switchScreen(3); // Go to challenge 1 screen
-    })
+    });
+
+    document.getElementById("btn-ch2-start").addEventListener("click", () =>{
+        resetGame();
+        switchScreen(5); // Go to challenge 2 screen
+    });
 
     // Typing game listener (only active on game screen)
     document.addEventListener("keydown", handleGameInput);
@@ -48,9 +53,7 @@ function switchScreen(screenNumber) {
     // Show the selected screen
     // add a failure screen. if screen number = -1 (or whatever you pick for the failure screen)
     // load the failure screen where it says you suck 
-    if (screenNumber === -1) {
-        document.getElementById("screen-failure").classList.add("active");
-    } else if (screenNumber === 0) {
+    if (screenNumber === 0) {
         document.getElementById("screen-title").classList.add("active");
     } else if (screenNumber === 1) {
         document.getElementById("screen-intro").classList.add("active");
@@ -65,6 +68,8 @@ function switchScreen(screenNumber) {
     } else if(screenNumber === 5) {
         document.getElementById("screen-accuracy-challenge").classList.add("active");
     }
+}
+
 // Start the countdown for Challenge 1
 // Countdown variables for Challenge 1
 let timerInterval = null;
@@ -118,7 +123,6 @@ function showTimesUp() {
     if (typedEl) {
         typedEl.textContent = "Time's up!";
     }
-}
 }
 
 // Reset game state when entering game
