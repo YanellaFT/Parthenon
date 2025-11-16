@@ -63,7 +63,13 @@ function switchScreen(screenNumber) {
 // Reset game state when entering game
 function resetGame() {
     i = 0;
-    currentstring = 0;
+    
+    /*if (screenNumber === 3) {
+        currentString = 0;
+    } else if(screenNumber === 5) {
+        currentString = 1;
+    }*/
+
     const promptEl = document.getElementById("prompt");
     const typedEl = document.getElementById("typed");
     if (promptEl) promptEl.textContent = textstrings[currentstring] || "";
@@ -72,7 +78,7 @@ function resetGame() {
 
 // Handle typing input (only when on game screen)
 function handleGameInput(event) {
-    if (currentScreen !== 3) return; // Only process input on game screen
+    //if (currentScreen !== 3) return; // Only process input on game screen
 
     if (currentstring >= textstrings.length) {
         console.log("Game complete!");

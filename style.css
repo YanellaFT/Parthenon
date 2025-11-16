@@ -162,4 +162,18 @@ p.text {
 
 #screen-speed-challenge {
     background-image: url('dungeon.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-size: 40% auto;
+
+    background-color: #44403d;
+}
+
+#screen-accuracy-challenge {
+    background-image: url('dungeon.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-size: 40% auto;
+
+    background-color: #44403d;
 }
