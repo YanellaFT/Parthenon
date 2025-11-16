@@ -320,3 +320,15 @@ p.text {
 #tutorial-hint-2 {
     display: none;
 }
+
+.instruction {
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.target {
+    background-color: #1a1a1a;
+    padding: 5px;
+    border-radius: 5px;
+}
