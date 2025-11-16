@@ -264,7 +264,6 @@ p.text {
     border-right: 0.12em solid rgba(228,227,41,0.9); /* caret */
     font-family: 'Courier New', monospace;
     font-size: 1.4em;
-    color: #ffffff;
     max-width: 100%;
     /* default: no visible text until animation runs */
 }
@@ -331,4 +330,13 @@ p.text {
     background-color: #1a1a1a;
     padding: 5px;
     border-radius: 5px;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.font {
+    font-size: 1.5em;
+    font-family: 'Courier New', monospace;   
 }
