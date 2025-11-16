@@ -8,7 +8,6 @@ let currentstring = 0;
 let tutorialSecondTextShown = false; // Track if second tutorial text has been shown
 
 function onStartPressed() {
-    console.log("started");
     const promptEl = document.getElementById("prompt");
     if (promptEl) promptEl.textContent = textstrings[currentstring];
 }
@@ -198,7 +197,6 @@ function handleGameInput(event) {
     }
 
     if (currentstring >= textstrings.length) {
-        console.log("Game complete!");
         return;
     }
     const promptEl = document.getElementById("prompt");
@@ -215,7 +213,6 @@ function handleGameInput(event) {
 
     // Check if pressed key matches the expected letter
     if (event.key === letter) {
-        console.log("correct");
         // display progress in the typed element instead of modifying the prompt
         typedEl.textContent += letter;
         i += 1;
@@ -231,10 +228,7 @@ function handleGameInput(event) {
                 return;
             }
         }
-    } else {
-        console.log("false, correct was " + letter);
     }
-    console.log(i);
 }
 
 // Add event listener for starting challenge two (screen 5)
