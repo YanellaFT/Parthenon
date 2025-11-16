@@ -75,3 +75,15 @@ p.text {
     font-family: 'Courier New', monospace;
     min-height: 40px;
 }
+
+#screen-title {
+    background-image: url(start.jpeg);
+    background-color: #c01010;
+
+}
+
+#screen-intro {
+    background-image: url('subway.jpeg');
+    background-color: #c01010;
+    
+}
