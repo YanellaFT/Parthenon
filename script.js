@@ -1,6 +1,6 @@
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = game
 
-const textstrings = ["Aw dearie do you want a cup of tea? I have some cookies for you :3 come out come out!! Warmmm. Freshhh. Cookiesssss. We have nice fresh milk to dip the warm freshly baked cookies. Dearie? DEARIE?"]
+const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, don’t you think? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
 
 let i = 0;
 let currentstring = 0;
