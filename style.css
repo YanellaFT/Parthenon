@@ -80,6 +80,7 @@ p.text {
     color: #518048;
 }
 
+
 #screen-title {
     background-image: url(start.jpeg);
     background-color: #c01010;
@@ -88,13 +89,52 @@ p.text {
 
 #screen-intro {
     background-image: url('subway.jpeg');
-    background-color: #c01010;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    background-size; 77% auto;
 
+    background-color: #c01010;
 }
 
-#text-intro {
-    color: black;
+#screen-intru {
+    background-image: url('subway.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-size; 77% auto;
+
+    background-color: #c01010;
+}
+
+#screen-intra {
+    background-image: url('subway.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-size; 77% auto;
+
+    background-color: #c01010;
+}
+
+
+#text-intri {
+    transform: translateY(180px);
+    color: #E4E329;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: #5c5c15;
+    background-color: rgb(15, 85, 42);
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 13px;
+}
+
+#screen-intry {
+    background-image: url('subway.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-size; 77% auto;
+
+    background-color: #c01010;
 }
