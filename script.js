@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btn-ch1-start").addEventListener("click", () =>{
         resetGame();
-        switchScreen(3); // Go to game screen
+        switchScreen(3); // Go to challenge 1 screen
     })
 
     // Typing game listener (only active on game screen)
@@ -64,7 +64,7 @@ function resetGame() {
 
 // Handle typing input (only when on game screen)
 function handleGameInput(event) {
-    if (currentScreen !== 2) return; // Only process input on game screen
+    if (currentScreen !== 3) return; // Only process input on game screen
     
     if (currentstring >= textstrings.length) {
         console.log("Game complete!");
@@ -104,6 +104,8 @@ function handleGameInput(event) {
     console.log(i);
 }
 
+
+//TO DO:
 //show sentence
 //lets user type
 //calculates word per minute + accuracy
