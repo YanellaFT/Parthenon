@@ -19,9 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("btn-enter").addEventListener("click", () => {
-        resetGame();
-        switchScreen(2); // Go to game screen
+        switchScreen(2); // Go to challenge 1 intro screen
     });
+
+    document.getElementById("btn-ch1-start").addEventListener("click", () =>{
+        resetGame();
+        switchScreen(3); // Go to game screen
+    })
 
     // Typing game listener (only active on game screen)
     document.addEventListener("keydown", handleGameInput);
@@ -34,7 +38,7 @@ function switchScreen(screenNumber) {
     // Hide all screens
     document.getElementById("screen-title").classList.remove("active");
     document.getElementById("screen-intro").classList.remove("active");
-    document.getElementById("screen-game").classList.remove("active");
+    document.getElementById("screen-speed-intro").classList.remove("active");
     
     // Show the selected screen
     if (screenNumber === 0) {
@@ -42,7 +46,9 @@ function switchScreen(screenNumber) {
     } else if (screenNumber === 1) {
         document.getElementById("screen-intro").classList.add("active");
     } else if (screenNumber === 2) {
-        document.getElementById("screen-game").classList.add("active");
+        document.getElementById("screen-speed-intro").classList.add("active");
+    } else if(screenNumber === 3) {
+        document.getElementById("screen-speed-challenge").classList.add("active");
     }
 }
 
