@@ -1,7 +1,7 @@
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = challeng 1 intro, 3 = challenge 1, 4 = challenge 2 intro, 5 = challenge 2
 
 //const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
-const textstrings = ["boomboomboomboomboom", "yayayayay", "I am Athena. I refuse to be your sacrifice."]; //for testing purposes
+const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right?", "I am Athena. I refuse to be your sacrifice."]; //for testing purposes
 
 let i = 0;
 let currentstring = 0;
@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("btn-ch2-start").addEventListener("click", () =>{
-        resetGame();
+        currentstring = 1; // Set to index 2 for accuracy challenge
+        //resetGame();
         switchScreen(5); // Go to challenge 2 screen
     });
 
@@ -75,6 +76,12 @@ function switchScreen(screenNumber) {
         stopTimer();
     } else if(screenNumber === 5) {
         document.getElementById("screen-accuracy-challenge").classList.add("active");
+        // Always set prompt and clear typed for accuracy challenge
+        const promptEl = document.getElementById("prompt2");
+        const typedEl = document.getElementById("typed2");
+        console.log(promptEl)
+        if (promptEl) promptEl.textContent = textstrings[1];
+        //if (typedEl) typedEl.textContent = "";
     } else if(screenNumber === 6) {
         document.getElementById("screen-tutorial").classList.add("active");
         tutorialSecondTextShown = false; // Reset flag when entering screen 6
@@ -82,13 +89,15 @@ function switchScreen(screenNumber) {
         document.getElementById("screen-tutorial-2").classList.add("active");
     } else if(screenNumber === 8) {
         document.getElementById("screen-tutorial-3").classList.add("active");
+    } else if(screenNumber === 10) {
+        document.getElementById("screen-end").classList.add("active");
     }
 }
 
 // Start the countdown for Challenge 1
 // Countdown variables for Challenge 1
 let timerInterval = null;
-let countdownTime = 12; // seconds
+let countdownTime = 15; // seconds
 let timeLeft = countdownTime;
 function startTimer() {
     timeLeft = countdownTime;
@@ -134,7 +143,7 @@ function updateTimerDisplay(time, isFinal) {
 
 // Show 'Time's up!' message (optional, can be customized)
 function showTimesUp() {
-    const typedEl = document.getElementById("typed");
+    const typedEl = document.getElementById("typed2");
     if (typedEl) {
         typedEl.textContent = "Time's up!";
     }
@@ -224,7 +233,7 @@ function handleGameInput(event) {
                 switchScreen(4);
                 return;
             } else {
-                switchScreen(6);
+                switchScreen(10);
                 return;
             }
         }
@@ -236,12 +245,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnCh2Start = document.getElementById("btn-ch2-start");
     if (btnCh2Start) {
         btnCh2Start.addEventListener("click", () => {
-            // Set up for currentstring = 1
+            // Set up for currentstring = 2 (index 2)
             currentstring = 1;
             i = 0;
-            const promptEl = document.getElementById("prompt");
-            const typedEl = document.getElementById("typed");
-            if (promptEl) promptEl.textContent = textstrings[currentstring] || "";
+            const promptEl = document.getElementById("prompt2");
+            const typedEl = document.getElementById("typed2");
+            if (promptEl) promptEl.textContent = textstrings[2] || "";
             if (typedEl) typedEl.textContent = "";
             switchScreen(5);
         });
@@ -272,7 +281,7 @@ function nextTutorialStep() {
         // Second Enter: move to screen 7 for typing challenge
         else {
             // Set up for tutorial typing on screen 7
-            currentstring = 2;
+            currentstring = 1;
             i = 0;
             const promptTut = document.getElementById('prompt-tutorial');
             const typedTut = document.getElementById('typed-tutorial');
