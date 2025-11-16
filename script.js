@@ -1,6 +1,6 @@
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = game
 
-const textstrings = ["hello!", "how are you?"]
+const textstrings = [""]
 
 let i = 0;
 let currentstring = 0;
