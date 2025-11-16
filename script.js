@@ -35,6 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
         switchScreen(5); // Go to challenge 2 screen
     });
 
+    document.getElementById("btn-meet-gods").addEventListener("click", () => {
+        switchScreen(2); // Go to speed challenge intro
+    });
+
     // Typing game listener (only active on game screen)
     document.addEventListener("keydown", handleGameInput);
 });
@@ -52,6 +56,7 @@ function switchScreen(screenNumber) {
     document.getElementById("screen-accuracy-challenge").classList.remove("active");
     document.getElementById("screen-tutorial").classList.remove("active");
     document.getElementById("screen-tutorial-2").classList.remove("active");
+    document.getElementById("screen-tutorial-3").classList.remove("active");
 
     // Show the selected screen
     // add a failure screen. if screen number = -1 (or whatever you pick for the failure screen)
@@ -75,6 +80,8 @@ function switchScreen(screenNumber) {
         tutorialSecondTextShown = false; // Reset flag when entering screen 6
     } else if(screenNumber === 7) {
         document.getElementById("screen-tutorial-2").classList.add("active");
+    } else if(screenNumber === 8) {
+        document.getElementById("screen-tutorial-3").classList.add("active");
     }
 }
 
@@ -180,9 +187,9 @@ function handleGameInput(event) {
             typedTut.textContent += letter;
             i += 1;
 
-            // If that was the last character, advance to challenge intro
+            // If that was the last character, advance to tutorial part 3
             if (i === tutorialText.length) {
-                switchScreen(2);
+                switchScreen(8);
                 return;
             }
         }
@@ -283,9 +290,9 @@ function nextTutorialStep() {
             switchScreen(7);
         }
     }
-    // On tutorial part 2 (screen 7), pressing Enter goes to speed challenge intro (screen 2)
+    // On tutorial part 2 (screen 7), pressing Enter goes to tutorial part 3 (screen 8)
     else if (currentScreen === 7) {
-        switchScreen(2);
+        switchScreen(8);
     }
 }
 
