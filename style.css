@@ -140,7 +140,7 @@ p.text {
 }
 
 #text-intri {
-    transform: translateY(-30px);
+    transform: translateY(130px);
     transform: translateX(945px);
     width: 32%;
     color: #E4E329;
@@ -153,7 +153,7 @@ p.text {
 }
 
 #text-intry {
-    transform: translateY(-30px)X(100px);
+    transform: translateY(130px)X(100px);
     color: #E4E329;
     font-family: "Lucida Console", "Courier New", monospace;
     text-shadow: #5c5c15;
@@ -169,7 +169,7 @@ p.text {
     background-size: cover;
     background-size: 40% auto;
 
-    background-color: #44403d;
+    background-color: #200c4f;
 }
 
 #screen-accuracy-challenge {
@@ -178,5 +178,5 @@ p.text {
     background-size: cover;
     background-size: 40% auto;
 
-    background-color: #44403d;
+    background-color: #0d0838;
 }
