@@ -18,6 +18,26 @@ body {
     transform: translate(-50%, 280%);
 }
 
+#screen-failure {
+    background-image: url('failure.jpeg');
+    .fade-in {
+  animation: fadeIn ease 10s;
+  -webkit-animation: fadeIn ease 10s;
+  -moz-animation: fadeIn ease 10s;
+  -o-animation: fadeIn ease 10s;
+  -ms-animation: fadeIn ease 10s;
+} 
+.fade-out {
+  100%
+      opacity:0;
+0%
+    opacity:1;
+  }
+}
+
+    background-color: #1a1a1a;
+}
+
 .screen {
     display: none;
     width: 100vw;
@@ -43,9 +63,14 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
+    transform: translateY(-120px);
+    font-size: 40px;
     margin-bottom: 20px;
     color: #E4E329;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #687eb8;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 p {
@@ -93,6 +118,8 @@ p.text {
     background-color: #c01010;
 
 }
+
+
 
 #screen-intro {
     background-image: url('subway.jpeg');
@@ -163,6 +190,15 @@ p.text {
     border-radius: 13px;
 }
 
+#screen-speed-intro {
+    background-image: url('kannon.JPG');
+    background-position: center center;
+    background-size: cover;
+    background-size: 100% auto;
+
+    background-color: #151515;
+}
+
 #screen-speed-challenge {
     background-image: url('dungeon.jpg');
     background-position: center center;
@@ -172,19 +208,34 @@ p.text {
     background-color: #200c4f;
 }
 
+
+
 #Seshat {
     font-size: 23px;
     color: #8a2020;
 }
 
 #warning1 {
+    transform: translateY(-120px);
     font-size: 20px;
     color: #9c8383;
-    background-color:#200c4f
+    background-color:#200c4f;
+    border-radius: 28px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
-
-
+#godspeech1 {
+    transform: translateY(-120px);
+    font-size: 20px;
+    color: #c9b474;
+    background-color: #8a2020;
+    border-radius: 28px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+#god1 {
+    font-size: 23px;
+    color: #e3d21d;
+}
 
 #screen-accuracy-challenge {
     background-image: url('dungeon.jpg');
@@ -194,6 +245,7 @@ p.text {
 
     background-color: #44403d;
 }
+
 
 #timer-container {
     position: fixed;

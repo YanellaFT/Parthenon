@@ -1,12 +1,12 @@
 // Countdown variables for Challenge 1
 let timerInterval = null;
-let countdownTime = 13; // seconds
+let countdownTime = 12; // seconds
 let timeLeft = countdownTime;
 
 let currentScreen = 0; // 0 = title, 1 = intro, 2 = challeng 1 intro, 3 = challenge 1, 4 = challenge 2 intro, 5 = challenge 2
 
 //const textstrings = ["Ahhh! Get away from me! I do NOT want your cookies! Let me goooo!!!", "I am so precise. Being precise is awesome, right? I am more precise than you, hahahaha… No. I cannot turn evil too. I am just doing this to stay alive. Wait, am I winning against THE Artemis???"]
-const textstrings = ["j", "k"]; //for testing purposes
+const textstrings = ["boomboomboomboomboom", "yayayayay"]; //for testing purposes
 
 let i = 0;
 let currentstring = 0;
@@ -16,6 +16,7 @@ function onStartPressed() {
     const promptEl = document.getElementById("prompt");
     if (promptEl) promptEl.textContent = textstrings[currentstring];
 }
+
 
 // Initialize event listeners on page load
 document.addEventListener("DOMContentLoaded", () => {
@@ -50,7 +51,11 @@ function switchScreen(screenNumber) {
     document.getElementById("screen-accuracy-challenge").classList.remove("active");
 
     // Show the selected screen
-    if (screenNumber === 0) {
+    // add a failure screen. if screen number = -1 (or whatever you pick for the failure screen)
+    // load the failure screen where it says you suck 
+    if (screenNumber === -1) {
+        document.getElementById("screen-failure").classList.add("active");
+    } else if (screenNumber === 0) {
         document.getElementById("screen-title").classList.add("active");
     } else if (screenNumber === 1) {
         document.getElementById("screen-intro").classList.add("active");
@@ -78,7 +83,10 @@ function startTimer() {
             stopTimer();
             // Time's up, move to next screen
             showTimesUp();
-            switchScreen(4);
+            // somewhere here: 
+            // if the timer has run out and they have NOT succeeded at the challenge
+            // switch to the failure screen using switchScreen
+            switchScreen(-1);
             return;
         }
         updateTimerDisplay(timeLeft);
