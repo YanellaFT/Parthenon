@@ -2,12 +2,13 @@ let currentScreen = 0; // 0 = title, 1 = intro, 2 = game
 
 const textstrings = ["hello!", "how are you?"]
 
-var i = 0
-var currentstring = 0
+let i = 0;
+let currentstring = 0;
 
 function onStartPressed() {
     console.log("started");
-    document.getElementById("prompt").textContent = textstrings[currentstring];
+    const promptEl = document.getElementById("prompt");
+    if (promptEl) promptEl.textContent = textstrings[currentstring];
 }
 
 // Initialize event listeners on page load
@@ -49,7 +50,10 @@ function switchScreen(screenNumber) {
 function resetGame() {
     i = 0;
     currentstring = 0;
-    document.getElementById("prompt").textContent = "";
+    const promptEl = document.getElementById("prompt");
+    const typedEl = document.getElementById("typed");
+    if (promptEl) promptEl.textContent = textstrings[currentstring] || "";
+    if (typedEl) typedEl.textContent = "";
 }
 
 // Handle typing input (only when on game screen)
@@ -60,30 +64,37 @@ function handleGameInput(event) {
         console.log("Game complete!");
         return;
     }
-    
-    var letter = textstrings[currentstring].substring(i, i+1);
-    
-    // Check if we've finished the current string
-    if (letter == '') {
-            currentstring += 1;
-            i = 0;
-            if (currentstring < textstrings.length) {
-                letter = textstrings[currentstring].substring(i, i+1);
-            } else {
-                console.log("Game complete!");
-                return;
-            }
-    };
-    
-    // Check if pressed key matches the expected letter
-    if (event.key == letter) {
-        console.log("correct");
-        document.getElementById("prompt").textContent += letter;
-        i += 1;
+    const promptEl = document.getElementById("prompt");
+    const typedEl = document.getElementById("typed");
+    if (!promptEl || !typedEl) return;
+
+    let letter = textstrings[currentstring].substring(i, i+1);
+
+    // If we've reached the end of the current string, move to the next one
+    if (letter === '') {
+        currentstring += 1;
+        i = 0;
+        if (currentstring < textstrings.length) {
+            promptEl.textContent = textstrings[currentstring];
+            typedEl.textContent = "";
+            letter = textstrings[currentstring].substring(i, i+1);
+        } else {
+            console.log("Game complete!");
+            promptEl.textContent = "Game complete!";
+            typedEl.textContent = "";
+            return;
+        }
     }
-    else {
+
+    // Check if pressed key matches the expected letter
+    if (event.key === letter) {
+        console.log("correct");
+        // display progress in the typed element instead of modifying the prompt
+        typedEl.textContent += letter;
+        i += 1;
+    } else {
         console.log("false, correct was " + letter);
-    };
+    }
     console.log(i);
 }
 
