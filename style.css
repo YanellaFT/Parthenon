@@ -20,20 +20,12 @@ body {
 
 #screen-failure {
     background-image: url('failure.jpeg');
-    .fade-in {
+    .fade-out {
   animation: fadeIn ease 10s;
   -webkit-animation: fadeIn ease 10s;
   -moz-animation: fadeIn ease 10s;
   -o-animation: fadeIn ease 10s;
   -ms-animation: fadeIn ease 10s;
-} 
-.fade-out {
-  100%
-      opacity:0;
-0%
-    opacity:1;
-  }
-}
 
     background-color: #1a1a1a;
 }
