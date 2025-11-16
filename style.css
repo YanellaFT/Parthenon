@@ -85,5 +85,8 @@ p.text {
 #screen-intro {
     background-image: url('subway.jpeg');
     background-color: #c01010;
-    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
 }
